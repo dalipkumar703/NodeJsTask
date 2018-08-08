@@ -1,7 +1,8 @@
 import express from 'express';
-import winston from 'winston';
 import bodyParser from 'body-parser';
 import jwt from 'jsonwebtoken';
+import {authenticate} from './lib/auth';
+import {logger} from './lib/logger';
 const app = express();
 
 app.use(bodyParser.json());
@@ -15,15 +16,7 @@ app.get('/', (req, res) => {
 app.post('/login',(req,res)=>{
   authenticate(req,res);
 })
-const logger = winston.createLogger({
-  level: 'info',
-  format: winston.format.json(),
-  transports: [
 
-    new winston.transports.File({ filename: 'error.log', level: 'error' }),
-    new winston.transports.File({ filename: 'combined.log' })
-  ]
-});
 
 
 
