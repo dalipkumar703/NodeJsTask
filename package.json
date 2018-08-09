@@ -11,6 +11,7 @@
   },
   "author": "Dalip <dalipkumar703@gmail.com>",
   "license": "ISC",
+  "repository": "git@github.com/dalipkumar703/NodeJsTask.git",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
