@@ -1,8 +1,8 @@
 import express from 'express';
-import {logger} from "./lib/logger";
+import {log} from "./lib/logger";
 import bodyParser from "body-parser";
-import {authenticate} from "./lib/auth";
-import jwt from 'jsonwebtoken';
+import {authenticate,verifyToken} from "./lib/auth";
+import {applyJsonPatch} from "./controllers/json-patch";
 const app = express();
 
 app.use(bodyParser.json());
@@ -13,10 +13,18 @@ app.use(express.static('./'));
 app.get('/', (req, res) => {
   res.status(200).json({ "message": "Welcome to Node.js & Express" });
 });
-app.get('/login/:name/:password?',(req,res)=>{
+app.post('/login',(req,res)=>{
 authenticate(req,res);
 });
+app.post('/api/json-patch/:token',(req,res)=>{
+verifyToken(req,res);
+applyJsonPatch(req,res);
+})
+app.post('/api/thumnail-generate',(req,res)=>{
+  generateThumbnail(req,res);
+})
 
 
 
-app.listen(process.env.PORT || 3000, () => logger.info("Listening to port 3000"));
+
+app.listen(process.env.PORT || 3000, () => log.info("Listening to port 3000"));
