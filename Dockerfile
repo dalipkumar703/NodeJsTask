@@ -1,7 +1,7 @@
 FROM node:7
-WORKDIR /Users/nitinthakkar/Downloads/NodeJsTask
-COPY package.json /Users/nitinthakkar/Downloads/NodeJsTask
+WORKDIR /Users/nitinthakkar/Desktop/Socialcops
+COPY package.json ./
 RUN npm install
-COPY . /Users/nitinthakkar/Downloads/NodeJsTask
-CMD node index.js
+COPY . .
+CMD ["npm", "start"]
 EXPOSE 8000
