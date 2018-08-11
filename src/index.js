@@ -3,7 +3,7 @@ import {log} from "./lib/logger";
 import bodyParser from "body-parser";
 import {authenticate,verifyToken} from "./lib/auth";
 import {applyJsonPatch} from "./controllers/json-patch";
-import {generateThumbnail} from "./controllers/thumbnail-generate";
+import {generateThumbnail} from "./controllers/thumbnail";
 const app = express();
 
 app.use(bodyParser.json());
@@ -19,7 +19,7 @@ authenticate(req,res);
 });
 app.post('/api/json-patch/:token',(req,res)=>{
 verifyToken(req,res);
-applyJsonPatch(req,res);
+applyJsonPatch(req.body,res);
 })
 app.post('/api/thumbnail-generate/:token',(req,res)=>{
   verifyToken(req,res);
