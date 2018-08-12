@@ -1,5 +1,13 @@
 import bunyan from "bunyan";
-const log = bunyan.createLogger({name: "NodeJsTask"});
+/** Logger for creating log file
+* @log
+*/
+const log = bunyan.createLogger({name: "NodeJsTask",
+streams: [{
+        path: 'logs/nodetask.log',
+        // `type: 'file'` is implied
+    }]
+});
 export  {
 	log
 };

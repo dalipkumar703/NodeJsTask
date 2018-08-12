@@ -12,6 +12,8 @@ describe('Authentication Test', function() {
     it('should return error when the token is not present', function() {
     let url='http://localhost:3000/login';
       log.info({message:url},"hello!");
+      /** request for testing login
+      */
       request({
         url:url,
         method:"POST",
@@ -50,6 +52,8 @@ describe('Authentication Test', function() {
 }
 
 };
+/** request for testing json-patch
+*/
         request({
           url:url+token,
           method:"POST",
