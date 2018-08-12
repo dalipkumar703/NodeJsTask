@@ -4,7 +4,7 @@ import bunyan from "bunyan";
 */
 const log = bunyan.createLogger({name: "NodeJsTask",
 streams: [{
-        path: 'logs/nodetask.log',
+        path: './logs/nodetask.log',
         // `type: 'file'` is implied
     }]
 });
