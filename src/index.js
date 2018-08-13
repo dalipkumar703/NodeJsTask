@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-
+import bodyParserError from "bodyparser-json-error";
 import { log } from "./lib/logger";
 import { authenticate, verifyToken } from "./lib/auth";
 import { applyJsonPatch } from "./controllers/json-patch";
@@ -17,6 +17,7 @@ app.use(
 	})
 );
 app.use(express.static("./"));
+app.use(bodyParserError.beautify({status: 500 , res: {msg: 'You sent a bad JSON !'}}));
 app.get("/", (req, res) => {
 	res.status(200).json({ message:"Welcome to NodeJsTask. Api call /login,  /api/json-patch/:token, /api/thumbnail-generate/:token" });
 });

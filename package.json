@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "body-parser": "^1.18.3",
+    "bodyparser-json-error": "^1.0.0",
     "bunyan": "^1.8.12",
     "cloudinary": "^1.11.0",
     "dotenv": "^6.0.0",
