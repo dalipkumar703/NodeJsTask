@@ -1,19 +1,9 @@
-# OS X
-.DS_Store*
-Icon?
-._*
 
-# Windows
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-
-# Linux
-.directory
-*~
 
 # npm
-node_modules
+node_modules/
+logs/*
+.nyc_output
 package-lock.json
 *.log
 *.gz
