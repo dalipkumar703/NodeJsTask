@@ -7,6 +7,7 @@ Installing App from Github\n
 2. npm update\n
 
 Installing App from Docker\n
+DOCKER URL- (https://hub.docker.com/r/dalipkumar703/app/)
 \n
 docker run
 Getting Started
