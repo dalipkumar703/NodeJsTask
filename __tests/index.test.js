@@ -3,6 +3,7 @@ import assert from "assert";
 import request from "request";
 import bunyan from "bunyan";
 import { should } from "chai";
+
 import {URL} from "../src/config/constants";
 
 
@@ -65,7 +66,6 @@ describe("Api test", () => {
           response.body.keys(obj).forEach(e => {
             elements.push(obj[e]);
           });
-          //expect(elements).to.have.elements(['fexpected_title_1','expected_title_2']);
           assert.equal(element[0], "Software Developer");
           assert.equal(element[1], "wmtc");
           assert.equal(element[2], "Dalip Thakkar");

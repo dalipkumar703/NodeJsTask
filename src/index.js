@@ -1,10 +1,12 @@
 import express from "express";
 import bodyParser from "body-parser";
 import bodyParserError from "bodyparser-json-error";
+
 import { log } from "./lib/logger";
 import { authenticate, verifyToken } from "./lib/auth";
 import { applyJsonPatch } from "./controllers/json-patch";
 import { generateThumbnail } from "./controllers/thumbnail-generate";
+
 
 /** App build using express
 *@app

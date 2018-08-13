@@ -1,6 +1,8 @@
 import assert from "assert";
 import request from "request";
+
 import {URL} from "../../src/config/constants";
+
 
 describe("Thumbnail Test", () => {
   it("should return 403 status", () => {

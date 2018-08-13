@@ -10,7 +10,6 @@ const log = bunyan.createLogger({
 	name: APP_NAME,
 streams: [{
         path: 'logs/nodetask.log',
-        // `type: 'file'` is implied
     }]
 });
 export { log };
