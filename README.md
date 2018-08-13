@@ -20,7 +20,7 @@ npm build -> To converting ES6<br>
 POST /login -> Create jwt tokens. Pass "name" and "password" in body with header content-type "application/x-www-form-urlencoded"
 
 POST /api/json-patch/:token? -> Apply patch operation. Pass below object in body with head content-type application/json.
-{
+<br>{
 	"doc":{
 		"name":"Dalip",
 		"profession":"Software Developer
@@ -31,7 +31,7 @@ POST /api/json-patch/:token? -> Apply patch operation. Pass below object in body
 		]
 }
 
-POST /api/thumbnail-generate/:token? -> Generate thumbnail of an img. Pass below object in body with header content-type application/json.
+POST /api/thumbnail-generate/:token? -> Generate thumbnail of an img. Pass below object in body with header content-type application/json.<br>
 {
 	"img":"https://pbs.twimg.com/media/DjwHDWxVAAA5eYQ.jpg"
 }
