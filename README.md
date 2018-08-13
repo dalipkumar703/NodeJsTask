@@ -8,7 +8,7 @@ Installing App from Github<br>
 
 Installing App from Docker<br>
  DOCKER URL- (https://hub.docker.com/r/dalipkumar703/app/)<br>
-docker run image<br>
+<br>
 Getting Started<br>
 npm start -> To start the server (then check http://localhost:3000)<br>
 npm build -> To converting ES6<br>
