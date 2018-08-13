@@ -1,7 +1,7 @@
-<b>NodeJs Task</b> <br>
+<h2><b>NodeJs Task</b></h2> <br>
 A Microservice app for patching document and getting image thumbnail of 50*50.<br>
 
-<b>Configure Guide</b> <br>
+<h3><b>Configure Guide</b></h3> <br>
 Installing App from Github<br>
 1. Git Pull(command: git pull https://github.com/dalipkumar703/NodeJsTask.git master )<br>
 2. npm update<br>
@@ -15,7 +15,7 @@ npm build -> To converting ES6<br>
 
 
 
-<b>API Endpoints</b><br>
+<h3><b>API Endpoints</b></h3><br>
 POST /login -> Create jwt tokens. Pass "name" and "password" in body with header content-type "application/x-www-form-urlencoded"
 
 POST /api/json-patch/:token? -> Apply patch operation. Pass below object in body with head content-type application/json.
@@ -36,7 +36,7 @@ POST /api/thumbnail-generate/:token? -> Generate thumbnail of an img. Pass below
 }
 
 
-<b>Running the tests</b><br>
+<h3><b>Running the tests</b></h3><br>
 Run "npm test" to run the tests and get test coverage results.<br>
 Built With<br>
 Express - The web framework used<br>
