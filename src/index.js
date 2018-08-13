@@ -1,11 +1,13 @@
 import express from "express";
-import { log } from "./lib/logger";
 import bodyParser from "body-parser";
+
+import { log } from "./lib/logger";
 import { authenticate, verifyToken } from "./lib/auth";
 import { applyJsonPatch } from "./controllers/json-patch";
-import { generateThumbnail } from "./controllers/thumbnail";
-const app = express();
+import { generateThumbnail } from "./controllers/thumbnail-generate";
 
+
+const app = express();
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
@@ -14,7 +16,7 @@ app.use(
 );
 app.use(express.static("./"));
 app.get("/", (req, res) => {
-  res.status(200).json({ message: "Welcome to Node.js & Express" });
+  res.status(200).json({ message:"Welcome to NodeJsTask. Api call /login,  /api/json-patch/:token, /api/thumbnail-generate/:token" });
 });
 /**Api call for creating token
  * Pass name and password in json format with header content-type: application/x-www-url-encoded

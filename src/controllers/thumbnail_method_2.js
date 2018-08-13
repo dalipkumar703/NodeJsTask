@@ -1,10 +1,13 @@
-import { log } from "../lib/logger";
 import fs from "fs";
 import request from "request";
 import sharp from "sharp";
+
+import { log } from "../lib/logger";
+
+
 /**  generateThumbnail
  * Convert original image to 50*50 image.
- */
+*/
 const generateThumbnail = (req, res) => {
   let result = req.body;
   let lastdot = result.img.lastIndexOf(".");
@@ -17,21 +20,20 @@ const generateThumbnail = (req, res) => {
           .pipe(fs.createWriteStream("socialcops.png"))
           .on("finish", (err, data) => {
             if (!err) {
-              log.info({ message: data }, "result");
 
               if (err) res.send(err);
               sharp("socialcops.png") //library for iamge resize
                 .resize(50, 50)
-                .toFile("socialcopssmall.png", (err, info) => {
-                  if (err) log.info({ error: err }, "error");
-                  else {
-                    log.info("success");
-
-                    res.redirect("http://localhost:3000/socialcopssmall.png");
-                  }
-                });
+								.toBuffer()
+								.then(data => {
+        fs.writeFileSync('socialcopssmall.png', data);
+				res.redirect("http://localhost:3000/socialcopssmall.png");
+    })
+    .catch(err => {
+      res.send(err);
+    });
             } else {
-              log.info({ err: err }, "error");
+              res.send(err);
             }
           });
       } else {

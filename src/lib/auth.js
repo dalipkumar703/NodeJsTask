@@ -1,11 +1,14 @@
 import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
+
 import { logger } from "./logger";
-dotenv.load();
+
+
 /** Authentication of user
  * @authenticate user by generating token
  * @verifyToken by matching user token with secret key
  */
+ dotenv.load();
 const authenticate = (req, res) => {
   var reply = {
     message: ""

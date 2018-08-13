@@ -1,5 +1,8 @@
+import jsonpatch from "fast-json-patch";
+
 import { log } from "../lib/logger";
-var jsonpatch = require("fast-json-patch");
+
+
 /**Apply JsonPatch operation
  *@applyJsonPatch
  */
