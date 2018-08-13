@@ -3,6 +3,7 @@ import assert from "assert";
 import request from "request";
 import bunyan from "bunyan";
 import { should } from "chai";
+import {URL} from "../src/config/constants";
 
 
 let log = bunyan.createLogger({ name: "nodeJstask" });
@@ -10,7 +11,7 @@ dotenv.load();
 describe("Authentication Test", () => {
   describe("Login Test", () => {
     it("should return error when the token is not present", function() {
-      let url = "http://localhost:3000/login";
+      let url = URL+"login";
       log.info({ message: url }, "hello!");
       /** request for testing login
        */
@@ -34,15 +35,14 @@ describe("Api test", () => {
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGFsaXAiLCJwYXNzd29yZCI6ImRhbm4iLCJpYXQiOjE1MzM5ODIyNDB9.gMz7II8h1lJNx2YwV6-jlfMQ8hwFSx3zg-G09FaTePI";
   describe("JsonPatch Test", () => {
     it("should return error when patch doesn't patch", () => {
-      let url = "http://localhost:3000/api/json-patch/";
+      let url = URL+"api/json-patch/";
       let json = {
-        info: {
+        doc: {
           name: "Dalip",
           profession: "Software Developer",
           nationality: "Indian"
         },
-        patch: {
-          obj: [
+        patch: [
             { op: "replace", path: "/name", value: "Dalip Thakkar" },
             { op: "add", path: "/organisation", value: "wmtc" },
             { op: "remove", path: "/nationality" },
@@ -50,7 +50,6 @@ describe("Api test", () => {
             { op: "move", from: "/name", path: "/fullname" },
             { op: "test", path: "/profession", value: "Software Developer" }
           ]
-        }
       };
       /** request for testing json-patch
        */
@@ -77,7 +76,7 @@ describe("Api test", () => {
 
   describe("Thumbnail Test", () => {
     it("should return 200 status", () => {
-      let url = "http://localhost:3000/api/thumbnail-generate/";
+      let url = URL+"api/thumbnail-generate/";
       request(
         {
           url: url + token,

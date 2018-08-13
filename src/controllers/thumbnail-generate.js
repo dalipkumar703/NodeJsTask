@@ -7,10 +7,10 @@ import {WIDTH,HEIGHT,URL} from "../config/constants";
 import dotenv from "dotenv";
 
 
-/** Convert original image to 50*50 image.
+dotenv.load();
+/**Convert original image to 50*50 image.
  *@generateThumbnail
  */
-dotenv.load();
 const generateThumbnail = (req, res) => {
 	let body_result = req.body;
 	cloudinary.config({

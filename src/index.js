@@ -30,27 +30,9 @@ app.post("/login", (req, res) => {
 	authenticate(req, res);
 });
 /**Api call for applying jsonpatch operation
-* Pass {
-	"info":{
-		"name":"Dalip",
-		"profession":"Software Developer",
-		"nationality":"Indian"
-	},
-	"patch":{
-	"obj":[
-		{ "op": "replace", "path": "/name", "value": "Dalip Thakkar" },
-		{"op":"add", "path":"/organisation", "value":"wmtc"},
-		{ "op": "remove", "path": "/nationality" },
-		{ "op": "copy", "from": "/name", "path": "/fullname" },
-		{ "op": "move", "from": "/name", "path": "/fullname" },
-		{ "op": "test", "path": "/profession", "value": "Software Developer" }
-		]
-
-
-	} in json format with header content-type: application/json
 *@param {object}
 */
-app.post("/api/json-patch/:token", (req, res) => {
+app.post("/api/json-patch/:token?", (req, res) => {
 	verifyToken(req, res);
 	applyJsonPatch(req.body, res);
 });
@@ -58,7 +40,7 @@ app.post("/api/json-patch/:token", (req, res) => {
  *Pass img in json format with header content-type:application/json.
  *@param {string} img
  */
-app.post("/api/thumbnail-generate/:token", (req, res) => {
+app.post("/api/thumbnail-generate/:token?", (req, res) => {
 	verifyToken(req, res);
 	generateThumbnail(req, res);
 });

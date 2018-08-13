@@ -1,14 +1,13 @@
 import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
 
-import { logger } from "./logger";
+import { log } from "./logger";
 
 
+dotenv.load();
 /** Authentication of user
  * @authenticate
- * @verifyToken 
  */
-dotenv.load();
 const authenticate = (req, res) => {
 	let reply = {
 		message: ""
@@ -25,21 +24,25 @@ const authenticate = (req, res) => {
     req.body.password.trim().length > 0
 	) {
 		reply.message = "Login Successfully!";
-		let token = jwt.sign(
+		var token = jwt.sign(
 			{ name: req.body.name, password: req.body.password },
 			process.env.token
 		);
 	}
 	if (token) {
+    log.info({token:token},"token value");
 		return res.status(200).json({ token: token });
 	} else {
 		return res.status(403).json({ message: reply.message });
 	}
 };
+/** Verify TOken
+*@verifyToken
+*/
 const verifyToken = (req, res) => {
 	jwt.verify(req.params.token, process.env.token, err => {
 		if (err) {
-			res.send({ err: err });
+			res.status(403).send({ err: err });
 		}
 	});
 };
