@@ -7,11 +7,11 @@ Installing App from Github\n
 2. npm update\n
 
 Installing App from Docker\n
-docker build -t app url\n
+\n
 docker run
 Getting Started
 npm start -> To start the server (then check http://localhost:3000)
-npm build -> To converting ES6
+npm build -> To convert ES6
 
 
 
