@@ -28,14 +28,14 @@ const generateThumbnail = (req, res) => {
 				height: HEIGHT
 			});
 			log.info({ res: result });
-			let t = resize_str.indexOf("'");
-			let y = resize_str.indexOf("'", t + 1);
-			log.info({ y: y, t: t }, "length");
-			log.info({ url: resize_str.substr(t + 1, y) }, "resize url");
+			let resize_url_start = resize_str.indexOf("'");
+			let resize_url_end = resize_str.indexOf("'", resize_url_start + 1);
+			log.info({ str_start: resize_url_end, str_end: resize_url_start }, "length");
+			log.info({ url: resize_str.substr(resize_url_start + 1, resize_url_end) }, "resize url");
 			request(body_result.img).pipe(
 				fs.createWriteStream("public/images/socialcops.png")
 			);
-			request(resize_str.substring(t + 1, y))
+			request(resize_str.substring(resize_url_start + 1, resize_url_end))
 				.pipe(fs.createWriteStream("public/images/scsmall.png"))
 				.on("finish", (err, info) => {
 					if (!err) {
